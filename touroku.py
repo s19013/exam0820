@@ -10,7 +10,6 @@ import smtplib
 win=tk.Tk()
 win.geometry("500x500")
 win.resizable(width=False, height=False)
-#sub_win_act=False
 #try and exceptは今回は省略
 #関数
 def ok():
@@ -20,7 +19,7 @@ def ok():
     def ok_click():
         filename=myouzi.get()
         with open('{}.txt'.format(filename), 'w',encoding="utf-8") as file:
-            file.write("名字:{}\n名前:{}\n血液型:{}\n性別:{}\n生年月日:{}年{}月{}日\nメールアドレス:{}\nパスワード:{}\n".format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
+            file.write("名字: {}\n名前: {}\n血液型: {}\n性別: {}\n生年月日: {}年 {}月 {}日\nメールアドレス: {}\nパスワード: {}\n".format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
         info.grid_remove()
         okbutton.grid_remove()
         backbutton.grid_remove()
@@ -30,7 +29,6 @@ def ok():
         quitbutton.pack()
 
     button_ok.configure(state="disabled")
-    #sub_win_act==True
     info_font=font.Font(size=13)
     sub_win=Toplevel()
     sub_win.geometry("500x500")
@@ -40,15 +38,14 @@ def ok():
     blat=blat_list[radio_blat.get()]
     gender=gender_list[radio_gender.get()]
     info=tk.Label(sub_win,justify="left",font=info_font,
-    text="""
-    ご確認ください\n
-    名字:{}
-    名前:{}\n
-    血液型:{}\n
-    性別:{}\n
-    生年月日:{}年{}月{}日\n
-    メールアドレス:{}\n
-    パスワード:{}\n
+    text="""    ご確認ください\n
+    名字: {}
+    名前: {}\n
+    血液型: {}\n
+    性別: {}\n
+    生年月日: {}年 {}月 {}日\n
+    メールアドレス: {}\n
+    パスワード: {}\n
     よろしければ[ok]ボタンを押してください"""
     .format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
     info.grid(row=0,column=0,columnspan=4)
@@ -80,8 +77,6 @@ radio_gender_male=tk.Radiobutton(win,text="男",value=0,variable=radio_gender)
 radio_gender_female=tk.Radiobutton(win,text="女",value=1,variable=radio_gender)
 #ボタン
 button_ok=tk.Button(win,text="ok",command=ok)
-#if sub_win_act==True:
-    #button_ok.configure(state="disabled")
 #ドロップダウン
 Ldrop=tk.Label(win,text="生年月日を選んでください[年/月/日]")
 #year
