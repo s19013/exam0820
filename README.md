@@ -25,3 +25,9 @@ stickyで左寄せ
 4. okボタンを押す
 5. 入力した内容がテキストファイルとして出力される
 6. quitを押して終わり
+
+## 参考にしたサイト
+
+[どん底から這い上がるまでの記録](https://www.pytry3g.com/entry/2018/02/06/170335)
+[Pythonでデスクトップアプリ作成入門 - Tkinterで肥満判定ツールを作ろう](https://news.mynavi.jp/article/zeropython-46/)
+[Tkinter による GUI プログラミング](https://python.keicode.com/advanced/tkinter.php)
