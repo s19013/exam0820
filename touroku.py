@@ -20,7 +20,7 @@ def ok():
     def ok_click():
         filename=myouzi.get()
         with open('{}.txt'.format(filename), 'w',encoding="utf-8") as file:
-            file.write("名字:{}  名前:{}\n血液型:{}\n性別:{}\n生年月日:{}年{}月{}日\nメールアドレス:{}\nパスワード:{}\n".format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
+            file.write("名字:{}\n名前:{}\n血液型:{}\n性別:{}\n生年月日:{}年{}月{}日\nメールアドレス:{}\nパスワード:{}\n".format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
         info.grid_remove()
         okbutton.grid_remove()
         backbutton.grid_remove()
@@ -42,7 +42,8 @@ def ok():
     info=tk.Label(sub_win,justify="left",font=info_font,
     text="""
     ご確認ください\n
-    名字:{}  名前:{}\n
+    名字:{}
+    名前:{}\n
     血液型:{}\n
     性別:{}\n
     生年月日:{}年{}月{}日\n
