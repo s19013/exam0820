@@ -9,6 +9,7 @@ import smtplib
 #ウィンドウ
 win=tk.Tk()
 win.geometry("500x500")
+win.resizable(width=False, height=False)
 #try and exceptは今回は省略
 #関数
 def ok():
@@ -28,12 +29,14 @@ def ok():
     info_font=font.Font(size=13)
     sub_win=Toplevel()
     sub_win.geometry("500x500")
+    sub_win.resizable(width=False, height=False)
     blat_list=["a","b","ab","o"]
     gender_list=["男","女"]
     blat=blat_list[radio_blat.get()]
     gender=gender_list[radio_gender.get()]
     info=tk.Label(sub_win,justify="left",font=info_font,
-    text="""   ご確認ください\n
+    text="""
+    ご確認ください\n
     名字:{}  名前:{}\n
     血液型:{}\n
     性別:{}\n
