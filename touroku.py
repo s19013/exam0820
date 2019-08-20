@@ -15,7 +15,7 @@ def ok():
     def ok_click():
         filename=myouzi.get()
         with open('{}.txt'.format(filename), 'w',encoding="utf-8") as file:
-            file.write("名字:{}  名前:{}\n血液型:{}\n性別:{}\n生年月日:{}年{}月{}日\nメールアドレス:{}\nパスワード:{}\n".format(myouzi.get(),namae.get(),blat,sex,year.get(),manth.get(),day.get(),email.get(),password.get()))
+            file.write("名字:{}  名前:{}\n血液型:{}\n性別:{}\n生年月日:{}年{}月{}日\nメールアドレス:{}\nパスワード:{}\n".format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
         info.grid_remove()
         okbutton.grid_remove()
         backbutton.grid_remove()
@@ -29,9 +29,9 @@ def ok():
     sub_win=Toplevel()
     sub_win.geometry("500x500")
     blat_list=["a","b","ab","o"]
-    sex_list=["男","女"]
+    gender_list=["男","女"]
     blat=blat_list[radio_blat.get()]
-    sex=sex_list[radio_sex.get()]
+    gender=gender_list[radio_gender.get()]
     info=tk.Label(sub_win,justify="left",font=info_font,
     text="""   ご確認ください\n
     名字:{}  名前:{}\n
@@ -41,7 +41,7 @@ def ok():
     メールアドレス:{}\n
     パスワード:{}\n
     よろしければ[ok]ボタンを押してください"""
-    .format(myouzi.get(),namae.get(),blat,sex,year.get(),manth.get(),day.get(),email.get(),password.get()))
+    .format(myouzi.get(),namae.get(),blat,gender,year.get(),manth.get(),day.get(),email.get(),password.get()))
     info.grid(row=0,column=0,columnspan=4)
     okbutton=tk.Button(sub_win,text="ok",command=ok_click)
     okbutton.grid(row=1,column=0,padx=120,pady=20)
@@ -63,12 +63,12 @@ radio_blat_a=tk.Radiobutton(win,text="a", value=0,variable=radio_blat)
 radio_blat_b=tk.Radiobutton(win,text="b", value=1,variable=radio_blat)
 radio_blat_ab=tk.Radiobutton(win,text="ab", value=2,variable=radio_blat)
 radio_blat_o=tk.Radiobutton(win,text="o", value=3,variable=radio_blat)
-#sex
-radio_sex=tk.IntVar()
-radio_sex.set(0)
-Lsex=tk.Label(win,text="性別は")
-radio_sex_male=tk.Radiobutton(win,text="男",value=0,variable=radio_sex)
-radio_sex_female=tk.Radiobutton(win,text="女",value=1,variable=radio_sex)
+#性別
+radio_gender=tk.IntVar()
+radio_gender.set(0)
+Lgender=tk.Label(win,text="性別は")
+radio_gender_male=tk.Radiobutton(win,text="男",value=0,variable=radio_gender)
+radio_gender_female=tk.Radiobutton(win,text="女",value=1,variable=radio_gender)
 #ボタン
 button_ok=tk.Button(win,text="ok",command=ok)
 #ドロップダウン
@@ -107,9 +107,9 @@ radio_blat_b.grid(row=3, column=1)
 radio_blat_ab.grid(row=3, column=2)
 radio_blat_o.grid(row=3, column=3)
 #性別
-Lsex.grid(row=4,column=0,sticky=tk.W)
-radio_sex_male.grid(row=5,column=0)
-radio_sex_female.grid(row=5,column=1)
+Lgender.grid(row=4,column=0,sticky=tk.W)
+radio_gender_male.grid(row=5,column=0)
+radio_gender_female.grid(row=5,column=1)
 #ドロップ
 Ldrop.grid(row=6,column=0,sticky=tk.W,pady=10,columnspan=4)
 year_cb.grid(row=8,column=0,sticky=tk.N+tk.E+tk.S)
@@ -121,6 +121,3 @@ password.grid(row=10,column=1,columnspan=10,sticky=tk.W)
 #ボタン
 button_ok.place(x=220,y=300)
 win.mainloop()
-
-
-#サブスクリーン
