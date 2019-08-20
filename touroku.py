@@ -10,9 +10,13 @@ import smtplib
 win=tk.Tk()
 win.geometry("500x500")
 win.resizable(width=False, height=False)
+#sub_win_act=False
 #try and exceptは今回は省略
 #関数
 def ok():
+    def back_click():
+        sub_win.destroy()
+        button_ok.configure(state="normal")
     def ok_click():
         filename=myouzi.get()
         with open('{}.txt'.format(filename), 'w',encoding="utf-8") as file:
@@ -25,7 +29,8 @@ def ok():
         quitbutton=tk.Button(sub_win,text="quit",command=lambda: sub_win.quit())
         quitbutton.pack()
 
-
+    button_ok.configure(state="disabled")
+    #sub_win_act==True
     info_font=font.Font(size=13)
     sub_win=Toplevel()
     sub_win.geometry("500x500")
@@ -48,7 +53,7 @@ def ok():
     info.grid(row=0,column=0,columnspan=4)
     okbutton=tk.Button(sub_win,text="ok",command=ok_click)
     okbutton.grid(row=1,column=0,padx=120,pady=20)
-    backbutton=tk.Button(sub_win,text="back",command=lambda: sub_win.destroy())
+    backbutton=tk.Button(sub_win,text="back",command=back_click)
     backbutton.grid(row=1,column=1,padx=10)
 
 #部品
@@ -74,6 +79,8 @@ radio_gender_male=tk.Radiobutton(win,text="男",value=0,variable=radio_gender)
 radio_gender_female=tk.Radiobutton(win,text="女",value=1,variable=radio_gender)
 #ボタン
 button_ok=tk.Button(win,text="ok",command=ok)
+#if sub_win_act==True:
+    #button_ok.configure(state="disabled")
 #ドロップダウン
 Ldrop=tk.Label(win,text="生年月日を選んでください[年/月/日]")
 #year
