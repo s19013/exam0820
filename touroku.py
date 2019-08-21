@@ -125,5 +125,5 @@ day_cb.grid(row=8,column=2)
 email.grid(row=9,column=1,columnspan=10,pady=10,sticky=tk.W)
 password.grid(row=10,column=1,columnspan=10,sticky=tk.W)
 #ボタン
-button_ok.place(x=220,y=300)
+button_ok.grid(row=11,column=1,columnspan=10,padx=100,pady=50)
 win.mainloop()
